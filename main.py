@@ -1,13 +1,15 @@
 from algorithms.i_cant_believe_it_can_sort import iCantBelieveItCanSort
 from algorithms.bubble_sort import bubbleSort
 from algorithms.selection_sort import selectionSort
+from algorithms.insertion_sort import insertionSort
 
 import time #Calculate the time of each algorithm
 
 #Functions list
 algorithms = [iCantBelieveItCanSort,
               bubbleSort,
-              selectionSort
+              selectionSort,
+              insertionSort
               ]
 
 #Same list for every algorithm
