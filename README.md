@@ -11,6 +11,7 @@ A clean, modular Python repository designed to implement, understand, and benchm
 - [Implemented Algorithms](#-implemented-algorithms)
   - [Quadratic Algorithms - O(n²)](#1-quadratic-algorithms---on2)
   - [Logarithmic / Divide & Conquer Algorithms - O(n log n)](#2-logarithmic--divide--conquer-algorithms---on-log-n)
+  - [Non-Comparison / Linear Algorithms - O(n + k)](#3-non-comparison--linear-algorithms---on--k)
 - [How to Run](#-how-to-run)
 - [Future Improvements](#-future-improvements)
 
