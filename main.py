@@ -3,6 +3,7 @@ from algorithms.bubble_sort import bubbleSort
 from algorithms.selection_sort import selectionSort
 from algorithms.insertion_sort import insertionSort
 from algorithms.merge_sort import mergeSort
+from algorithms.quick_sort import quickSort
 
 import time #Calculate the time of each algorithm
 from random import randint
@@ -12,10 +13,11 @@ algorithms = [iCantBelieveItCanSort,
               bubbleSort,
               selectionSort,
               insertionSort,
-              mergeSort
+              mergeSort,
+              quickSort
               ]
 
-nums_size = [10, 5000]
+nums_size = [10, 1000, 5000]
 for size in nums_size: #Same list for every algorithm
     main_nums = [randint(1, size) for _ in range(size)] #Random list
 
@@ -29,6 +31,8 @@ for size in nums_size: #Same list for every algorithm
         result = algo(nums)
         end = time.perf_counter()
         run_time = end - start
+
+        assert result == sorted(main_nums), f"{algo.__name__} sorted incorrectly" #Verifies if it's truly sorted
 
         print(f"{algo.__name__:^21} | {run_time * 1000:^8.2f} miliseconds |")
 
