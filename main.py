@@ -5,6 +5,7 @@ from algorithms.insertion_sort import insertionSort
 from algorithms.merge_sort import mergeSort
 from algorithms.quick_sort import quickSort
 from algorithms.heap_sort import heapSort
+from algorithms.counting_sort import countingSort
 
 import time #Calculate the time of each algorithm
 from random import randint
@@ -16,12 +17,13 @@ algorithms = [iCantBelieveItCanSort,
               insertionSort,
               mergeSort,
               quickSort,
-              heapSort
+              heapSort,
+              countingSort
               ]
 
 nums_size = [10, 1000, 5000]
 for size in nums_size: #Same list for every algorithm
-    main_nums = [randint(1, size) for _ in range(size)] #Random list
+    main_nums = [randint(-size, size) for _ in range(size)] #Random list
 
     print("----------------------+----------------------+------------+")
     print(f"{"Algorithms:":^21} | {"Time:":^20} | {size:^4} itens |") #Display
