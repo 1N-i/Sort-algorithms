@@ -4,6 +4,7 @@ from algorithms.selection_sort import selectionSort
 from algorithms.insertion_sort import insertionSort
 from algorithms.merge_sort import mergeSort
 from algorithms.quick_sort import quickSort
+from algorithms.heap_sort import heapSort
 
 import time #Calculate the time of each algorithm
 from random import randint
@@ -14,7 +15,8 @@ algorithms = [iCantBelieveItCanSort,
               selectionSort,
               insertionSort,
               mergeSort,
-              quickSort
+              quickSort,
+              heapSort
               ]
 
 nums_size = [10, 1000, 5000]
