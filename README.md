@@ -44,6 +44,9 @@ A clean, modular Python repository designed to implement, understand, and benchm
 * **Quick Sort**: Divide and conquer algorithm utilizing a pivot element (with dedicated handling for duplicate values via equal buckets) to partition the array recursively.
 * **Heap Sort**: In-place comparison sort using a complete binary tree structure (Max-Heap) and a `heapify` process to repeatedly extract the maximum element to the end of the array.
 
+### 3. Non-Comparison / Linear Algorithms - $O(n + k)$
+* **Counting Sort**: A non-comparison integer sorting algorithm that counts the frequency of distinct elements to calculate their exact output positions, operating in linear time $O(n + k)$.
+
 ## 🚀 How to Run
 
 To run the automated benchmark harness and compare execution times across all algorithms, execute the following command:
@@ -53,6 +56,6 @@ python main.py
 ```
 
 ## 🔮 Future Improvements
-- [ ] Add non-comparison sorting algorithms (e.g., **Counting Sort**, **Radix Sort**, **Bucket Sort**).
-- [ ] Support custom input distributions (e.g., nearly sorted, reverse sorted, duplicate-heavy datasets).
+- [X] Add non-comparison sorting algorithms (**Counting Sort**).
+- [ ] Support custom input distributions (Ex: nearly sorted, reverse sorted, duplicate-heavy datasets).
 - [ ] Add execution visualization and complexity graph rendering.
