@@ -7,6 +7,7 @@ from algorithms.quick_sort import quickSort
 from algorithms.heap_sort import heapSort
 from algorithms.counting_sort import countingSort
 from algorithms.radix_sort import radixSort
+from algorithms.python_sort import pythonSort
 
 import time #Calculate the time of each algorithm
 from random import randint
@@ -20,7 +21,8 @@ algorithms = [iCantBelieveItCanSort,
               quickSort,
               heapSort,
               countingSort,
-              radixSort
+              radixSort,
+              pythonSort
               ]
 
 nums_size = [10, 1000, 5000]
