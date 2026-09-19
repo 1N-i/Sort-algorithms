@@ -5,6 +5,7 @@ def radixSort(nums):
             nums[i] -= min_num
             
     max_num = max(nums)
+    if min_num == max_num: return nums
     exp = 1
 
     while exp <= max_num:
@@ -34,4 +35,4 @@ def radixSort(nums):
     return nums
 
 if __name__ == "__main__":
-    print(radixSort([5, 4, 8, 1, 3, 2, 9, 6, 7]))
+    print(radixSort([5, 4, 8, -1, -3, -2, 9, 6, 7]))

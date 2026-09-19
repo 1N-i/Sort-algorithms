@@ -49,6 +49,7 @@ A clean, modular Python repository designed to implement, understand, and benchm
 ### 3. Non-Comparison / Linear Algorithms - $O(n + k)$
 * **Counting Sort**: A non-comparison integer sorting algorithm that counts the frequency of distinct elements to calculate their exact output positions, operating in linear time $O(n + k)$.
 * **Radix Sort**: A non-comparison integer sorting algorithm that processes numbers digit by digit from least to most significant position using counting sort as a stable subroutine, operating in $O(d \cdot (n + k))$ time.
+* **Bucket Sort**: A distribution-based algorithm that divides input elements into several uniformly distributed buckets, individually sorts each bucket (often using Insertion Sort), and concatenates the results into a single sorted array.
 
 ## 🚀 How to Run
 
@@ -59,6 +60,6 @@ python main.py
 ```
 
 ## 🔮 Future Improvements
-- [X] Add non-comparison sorting algorithms (**Counting Sort**).
+- [X] Add non-comparison sorting algorithms (**Counting Sort**, **Radix Sort**, **Bucket Sort**).
 - [ ] Support custom input distributions (Ex: nearly sorted, reverse sorted, duplicate-heavy datasets).
 - [ ] Add execution visualization and complexity graph rendering.

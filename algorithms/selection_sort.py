@@ -3,7 +3,6 @@ def selectionSort(nums):
 
     for i in range(len_nums):
         min_i = i
-
         for j in range(i + 1, len_nums):
             if nums[j] < nums[min_i]:
                 min_i = j
@@ -13,4 +12,4 @@ def selectionSort(nums):
     return nums
 
 if __name__ == "__main__":
-    print(selectionSort([5, 4, 8, 1, 3, 2, 9, 6, 7]))
+    print(selectionSort([5, 4, 8, -1, -3, -2, 9, 6, 7]))

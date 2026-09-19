@@ -8,4 +8,4 @@ def bubbleSort(nums):
     return nums
 
 if __name__ == "__main__":
-    print(bubbleSort([5, 4, 8, 1, 3, 2, 9, 6, 7]))
+    print(bubbleSort([5, 4, 8, -1, -3, -2, 9, 6, 7]))

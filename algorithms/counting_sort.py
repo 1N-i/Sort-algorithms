@@ -1,5 +1,6 @@
 def countingSort(nums):
     min_num, max_num = min(nums), max(nums)
+    if min_num == max_num: return nums
     count = [0] * ((max_num + 1) - min_num)
 
     for num in nums:

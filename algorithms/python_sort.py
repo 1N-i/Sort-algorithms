@@ -3,4 +3,4 @@ def pythonSort(nums):
     return nums
 
 if __name__ == "__main__":
-    print(pythonSort([5, 4, 8, 1, 3, 2, 9, 6, 7]))    
+    print(pythonSort([5, 4, 8, -1, -3, -2, 9, 6, 7]))
