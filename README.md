@@ -39,6 +39,7 @@ A clean, modular Python repository designed to implement, understand, and benchm
 * **Bubble Sort**: Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
 * **Selection Sort**: In-place comparison algorithm that repeatedly finds the minimum element from the unsorted region and places it at the beginning.
 * **Insertion Sort**: Builds the final sorted array one item at a time by inserting unsorted elements into their correct position.
+* **Shell Sort**: An optimization of insertion sort that compares elements separated by a decreasing gap sequence, significantly reducing element movement before finishing with a final gap-1 insertion pass.
 
 ### 2. Logarithmic / Divide & Conquer Algorithms - $O(n \log n)$
 * **Merge Sort**: Divide and conquer algorithm that splits the array in half recursively, sorts each half, and merges them back together.
