@@ -57,7 +57,7 @@ A clean, modular Python repository designed to implement, understand, and benchm
 To run the automated benchmark harness and compare execution times across all algorithms, execute the following command:
 
 ```bash
-python main.py
+python benchmark.py
 ```
 
 ## 🔮 Future Improvements
