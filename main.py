@@ -1,51 +1,20 @@
-from algorithms.i_cant_believe_it_can_sort import iCantBelieveItCanSort
-from algorithms.bubble_sort import bubbleSort
-from algorithms.selection_sort import selectionSort
-from algorithms.insertion_sort import insertionSort
-from algorithms.merge_sort import mergeSort
-from algorithms.quick_sort import quickSort
-from algorithms.heap_sort import heapSort
-from algorithms.counting_sort import countingSort
-from algorithms.radix_sort import radixSort
-from algorithms.python_sort import pythonSort
-from algorithms.bucket_sort import bucketSort
-from algorithms.shell_sort import shellSort
+from algorithms_generator.bubble_sort_generator import bubbleSortGenerator
 
-import time #Calculate the time of each algorithm
-from random import randint
+from utils.data_generator import generateData
+from ui.renderer import renderer
+import pygame
 
-#Functions list
-algorithms = [iCantBelieveItCanSort,
-              bubbleSort,
-              selectionSort,
-              insertionSort,
-              mergeSort,
-              quickSort,
-              heapSort,
-              countingSort,
-              radixSort,
-              pythonSort,
-              bucketSort,
-              shellSort
-              ]
+pygame.init()
+surface = pygame.display.set_mode((800, 600))
+clock = pygame.time.Clock()
 
-nums_size = [10, 1000, 5000]
-for size in nums_size: #Same list for every algorithm
-    main_nums = [randint(-size, size) for _ in range(size)] #Random list
+nums = generateData(100, "totally_random", False)
+sorter = bubbleSortGenerator(nums)
 
-    print("----------------------+----------------------+------------+")
-    print(f"{"Algorithms:":^21} | {"Time:":^20} | {size:^4} itens |") #Display
-    print("----------------------+----------------------+------------+")
-    for algo in algorithms:
-        nums = main_nums.copy()
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-        start = time.perf_counter()
-        result = algo(nums)
-        end = time.perf_counter()
-        run_time = end - start
-
-        assert result == sorted(main_nums), f"{algo.__name__} sorted incorrectly" #Verifies if it's truly sorted
-
-        print(f"{algo.__name__:^21} | {run_time * 1000:^8.2f} miliseconds |")
-
-    print(f"----------------------+----------------------+ \n")
+    step = next(sorter, None)
