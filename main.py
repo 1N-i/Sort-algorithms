@@ -8,7 +8,7 @@ pygame.init()
 surface = pygame.display.set_mode((800, 600))
 clock = pygame.time.Clock()
 
-nums = generateData(100, "totally_random", False)
+nums = generateData(100, "totally_random", True) #(size, style, allow_negatives)
 sorter = bubbleSortGenerator(nums)
 
 running = True
