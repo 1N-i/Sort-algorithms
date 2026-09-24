@@ -8,16 +8,16 @@ def bucketSortGenerator(nums):
     buckets = [[] for _ in range(num_buckets)]
     range_bucket = (max_nums - min_nums) / num_buckets
 
-    for idx, num in enumerate(nums):
+    for i, num in enumerate(nums):
         bucket_i = min(int((num - min_nums) / range_bucket), num_buckets - 1)
         buckets[bucket_i].append(num)
 
         placed_elements = [elem for bucket in buckets for elem in bucket]
-        unplaced_elements = nums[idx + 1:]
+        unplaced_elements = nums[i + 1:]
         
         nums[:] = placed_elements + unplaced_elements
         curr_pos = len(placed_elements) - 1
-        yield nums, curr_pos, idx
+        yield nums, curr_pos, i
 
     offset = 0
 
@@ -49,4 +49,4 @@ def bucketSortGenerator(nums):
 if __name__ == "__main__":
     nums = [5, 4, 8, -1, -3, -2, 9, 6, 7]
     for state, i1, i2 in bucketSortGenerator(nums):
-        print(f"Comparando índices {i1} e {i2}: {state}")
+        print(f"Idx {i1} and {i2}: {state}")
