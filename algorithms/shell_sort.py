@@ -4,14 +4,14 @@ def shellSort(nums):
 
     while gap > 0:
         for i in range(gap, len_nums):
-                key = nums[i]
-                j = i - gap
+            key = nums[i]
+            j = i - gap
                     
-                while j >= 0 and nums[j] > key:
-                    nums[j + gap] = nums[j]
-                    j -= gap
+            while j >= 0 and nums[j] > key:
+                nums[j + gap] = nums[j]
+                j -= gap
                         
-                nums[j + gap] = key
+            nums[j + gap] = key
 
         gap //= 2
 

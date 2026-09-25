@@ -9,7 +9,7 @@ from algorithms_generator.insertion_sort_generator import insertionSortGenerator
 #from algorithms_generator.quick_sort import quickSort
 #from algorithms_generator.radix_sort import radixSort
 from algorithms_generator.selection_sort_generator import selectionSortGenerator
-#from algorithms_generator.shell_sort import shellSort
+from algorithms_generator.shell_sort_generator import shellSortGenerator
 
 from utils.data_generator import generateData
 from ui.renderer import renderer
@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 
 
 #Functions list
-algorithms = [                      #clock.tick(60) value
+algorithms = [                      #clock.tick() value
     bubbleSortGenerator,            #180
     bucketSortGenerator,            #30
     countingSortGenerator,          #45
@@ -33,13 +33,13 @@ algorithms = [                      #clock.tick(60) value
     #quickSortGenerator,             #
     #radixSortGenerator,             #
     selectionSortGenerator,         #180
-    #shellSortGenerator              #
+    shellSortGenerator              #120
 ]
 
 
 #("already_sorted", "reverse_sorted", "totally_random", "nearly_sorted")
 nums = generateData(100, "totally_random", True) #(size, style, allow_negatives)
-algo = insertionSortGenerator(nums)
+algo = shellSortGenerator(nums)
 green_id = -1
 
 running = True

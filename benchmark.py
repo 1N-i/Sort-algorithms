@@ -15,19 +15,20 @@ import time #Calculate the time of each algorithm
 from random import randint
 
 #Functions list
-algorithms = [iCantBelieveItCanSort,
-              bubbleSort,
-              selectionSort,
-              insertionSort,
-              mergeSort,
-              quickSort,
-              heapSort,
-              countingSort,
-              radixSort,
-              pythonSort,
-              bucketSort,
-              shellSort
-              ]
+algorithms = [
+    iCantBelieveItCanSort,
+    bubbleSort,
+    selectionSort,
+    insertionSort,
+    mergeSort,
+    quickSort,
+    heapSort,
+    countingSort,
+    radixSort,
+    pythonSort,
+    bucketSort,
+    shellSort
+]
 
 nums_size = [10, 1000, 5000]
 for size in nums_size: #Same list for every algorithm

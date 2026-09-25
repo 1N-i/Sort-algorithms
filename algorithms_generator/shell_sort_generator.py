@@ -2,16 +2,20 @@ def shellSortGenerator(nums):
     len_nums = len(nums)
     gap = len_nums // 2
 
+    yield nums, None, None
     while gap > 0:
         for i in range(gap, len_nums):
-                key = nums[i]
-                j = i - gap
-                    
-                while j >= 0 and nums[j] > key:
-                    nums[j + gap] = nums[j]
-                    j -= gap
+            key = nums[i]
+            j = i - gap
+
+            yield nums, j + gap, j
+            while j >= 0 and nums[j] > key:
+                nums[j + gap] = nums[j]
+                j -= gap
+                yield nums, j + (2 * gap), j + gap
                         
-                nums[j + gap] = key
+            nums[j + gap] = key
+            yield nums, j + gap, j + gap
 
         gap //= 2
 
