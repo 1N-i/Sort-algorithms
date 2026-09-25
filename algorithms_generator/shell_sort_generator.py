@@ -1,4 +1,4 @@
-def shellSort(nums):
+def shellSortGenerator(nums):
     len_nums = len(nums)
     gap = len_nums // 2
 
@@ -18,4 +18,6 @@ def shellSort(nums):
     return nums
 
 if __name__ == "__main__":
-    print(shellSort([5, 4, 8, -1, -3, -2, 9, 6, 7]))
+    nums = [5, 4, 8, -1, -3, -2, 9, 6, 7]
+    for state, i1, i2 in shellSortGenerator(nums):
+        print(f"Idx {i1} and {i2}: {state}")
