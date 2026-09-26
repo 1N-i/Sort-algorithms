@@ -19,10 +19,10 @@ def renderer(surface, nums, id1=None, id2=None, green_id=-1):
             y = y_zero
 
         if i == id1 or i == id2:
-            color = (255, 0, 0) # Vermelho
+            color = (255, 0, 0) #Red
         elif i <= green_id:
-            color = (0, 255, 0) # Green
+            color = (0, 255, 0) #Green
         else:
-            color = (255, 255, 255) # Branco
+            color = (255, 255, 255) #White
 
         pygame.draw.rect(surface, color, (x, y, width, height))

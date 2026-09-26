@@ -4,7 +4,7 @@ from algorithms_generator.counting_sort_generator import countingSortGenerator
 from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
 from algorithms_generator.insertion_sort_generator import insertionSortGenerator
-#from algorithms_generator.merge_sort import mergeSort
+from algorithms_generator.merge_sort_generator import mergeSortGenerator
 #from algorithms_generator.python_sort import pythonSort
 from algorithms_generator.quick_sort_generator import quickSortGenerator
 #from algorithms_generator.radix_sort import radixSort
@@ -28,7 +28,7 @@ algorithms = [                      #clock.tick() value
     heapSortGenerator,              #30
     iCantBelieveItCanSortGenerator, #480
     insertionSortGenerator,         #120
-    #mergeSortGenerator,             #
+    mergeSortGenerator,             #120
     #pythonSortGenerator,            #
     quickSortGenerator,             #120
     #radixSortGenerator,             #
@@ -39,7 +39,7 @@ algorithms = [                      #clock.tick() value
 
 #("already_sorted", "reverse_sorted", "totally_random", "nearly_sorted")
 nums = generateData(100, "totally_random", True) #(size, style, allow_negatives)
-algo = quickSortGenerator(nums)
+algo = mergeSortGenerator(nums)
 green_id = -1
 
 running = True
