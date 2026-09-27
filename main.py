@@ -5,7 +5,7 @@ from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
 from algorithms_generator.insertion_sort_generator import insertionSortGenerator
 from algorithms_generator.merge_sort_generator import mergeSortGenerator
-#from algorithms_generator.python_sort import pythonSort
+#from algorithms_generator.tim_sort_generator import timSortGenerator
 from algorithms_generator.quick_sort_generator import quickSortGenerator
 from algorithms_generator.radix_sort_generator import radixSortGenerator
 from algorithms_generator.selection_sort_generator import selectionSortGenerator
@@ -29,7 +29,7 @@ algorithms = [                      #clock.tick() value
     iCantBelieveItCanSortGenerator, #480
     insertionSortGenerator,         #120
     mergeSortGenerator,             #120
-    #pythonSortGenerator,            #
+    #timSortGenerator,               #
     quickSortGenerator,             #120
     radixSortGenerator,             #90
     selectionSortGenerator,         #180
