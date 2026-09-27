@@ -16,7 +16,6 @@ def mergeSortGenerator(nums, start=0, end=None):
 
         while i < len(left_part) and j < len(right_part):
             yield nums, start + i, mid + 1 + j
-
             if left_part[i] <= right_part[j]:
                 nums[k] = left_part[i]
                 i += 1

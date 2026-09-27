@@ -46,6 +46,7 @@ A clean, modular Python repository designed to implement, understand, and benchm
 * **Quick Sort**: Divide and conquer algorithm utilizing a pivot element (with dedicated handling for duplicate values via equal buckets) to partition the array recursively.
 * **Heap Sort**: In-place comparison sort using a complete binary tree structure (Max-Heap) and a `heapify` process to repeatedly extract the maximum element to the end of the array.
 * **Python Sort (`python_sort`)**: Wrapper around Python's native `list.sort()` (Timsort), serving as the high-performance C-level baseline benchmark ($O(n \log n)$).
+* **Tim Sort (`tim_sort`)**: A hybrid sorting algorithm derived from Merge Sort and Insertion Sort, designed to perform efficiently on real-world data by identifying pre-existing ordered runs.
 
 ### 3. Non-Comparison / Linear Algorithms - $O(n + k)$
 * **Counting Sort**: A non-comparison integer sorting algorithm that counts the frequency of distinct elements to calculate their exact output positions, operating in linear time $O(n + k)$.

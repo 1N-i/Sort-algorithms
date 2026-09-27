@@ -5,7 +5,7 @@ from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
 from algorithms_generator.insertion_sort_generator import insertionSortGenerator
 from algorithms_generator.merge_sort_generator import mergeSortGenerator
-#from algorithms_generator.tim_sort_generator import timSortGenerator
+from algorithms_generator.tim_sort_generator import timSortGenerator
 from algorithms_generator.quick_sort_generator import quickSortGenerator
 from algorithms_generator.radix_sort_generator import radixSortGenerator
 from algorithms_generator.selection_sort_generator import selectionSortGenerator
@@ -29,7 +29,7 @@ algorithms = [                      #clock.tick() value
     iCantBelieveItCanSortGenerator, #480
     insertionSortGenerator,         #120
     mergeSortGenerator,             #120
-    #timSortGenerator,               #
+    timSortGenerator,               #120
     quickSortGenerator,             #120
     radixSortGenerator,             #90
     selectionSortGenerator,         #180
@@ -39,7 +39,7 @@ algorithms = [                      #clock.tick() value
 
 #("already_sorted", "reverse_sorted", "totally_random", "nearly_sorted")
 nums = generateData(100, "totally_random", True) #(size, style, allow_negatives)
-algo = radixSortGenerator(nums)
+algo = timSortGenerator(nums)
 green_id = -1
 
 running = True
@@ -53,7 +53,7 @@ while running:
     if step is not None:
         nums, id1, id2 = step
         renderer(surface, nums, id1, id2)
-        clock.tick(90) #Speed the algorithm runs
+        clock.tick(120) #Speed the algorithm runs
     else:
         clock.tick(60) #Speed of the sorted animation
         if green_id < len(nums):
