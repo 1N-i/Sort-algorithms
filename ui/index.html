@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>Sort Algorithms</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<form method="get">
+            List size: <input type="number" value="100" id="size" name="list_size"> <br>
+            <div class="box">
+                <input checked type="checkbox" value="negative" id="allow-negatives" name="allow_negatives">Negative numbers:<br>
+            </div>
+
+            Type of data: <select id="data-style" name="data_style">
+                <option value="already_sorted" selected>Already sorted</option>
+                <option value="reverse_sorted">Reverse sorted</option>
+                <option value="totally_random">Totally random</option>
+                <option value="nearly_sorted">Nearly sorted</option>
+            </select> <br>
+        </form>
+
+		<div class="algorithms-grid">
+			<button type="button" class="algo-btn" data-algo="bubble_sort">
+				Bubble Sort
+			</button>
+
+			<button type="button" class="algo-btn" data-algo="bucket_sort">
+				Bucket Sort
+			</button>
+
+			<button type="button" class="algo-btn" data-algo="counting_sort">
+				Counting Sort
+			</button>
+
+			<button type="button" class="algo-btn" data-algo="heap_sort">
+				Heap Sort
+			</button>
+
+			<button type="button" class="algo-btn" data-algo="i_cant_believe_it_can_sort">
+				I can't believe it can sort
+			</button>
+
+			<button type="button" class="algo-btn" data-algo="insertion_sort">
+				Insertion Sort
+			</button>
+			
+			<button type="button" class="algo-btn" data-algo="merge_sort">
+				Merge Sort
+			</button>
+
+			<button type="button" class="algo-btn" data-algo="python_sort">
+				Python Sort
+			</button>
+			
+			<button type="button" class="algo-btn" data-algo="quick_sort">
+				Quick Sort
+			</button>
+			
+			<button type="button" class="algo-btn" data-algo="radix_sort">
+				Radix Sort
+			</button>
+			
+			<button type="button" class="algo-btn" data-algo="selection_sort">
+				Selection Sort
+			</button>
+			
+			<button type="button" class="algo-btn" data-algo="shell_sort">
+				Shell Sort
+			</button>
+			
+			<button type="button" class="algo-btn" data-algo="tim_sort">
+				Tim Sort
+			</button>
+		</div>
+
+		<button type="button" name="benchmark" id="benchmark-btn">Benchmark</button>
+		<section id="benchmark-results"></section>
+
+		<script src="script.js"></script>
+	</body>
+</html>

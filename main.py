@@ -36,7 +36,6 @@ algorithms = [                      #clock.tick() value
     shellSortGenerator              #120
 ]
 
-
 #("already_sorted", "reverse_sorted", "totally_random", "nearly_sorted")
 nums = generateData(100, "totally_random", True) #(size, style, allow_negatives)
 algo = timSortGenerator(nums)

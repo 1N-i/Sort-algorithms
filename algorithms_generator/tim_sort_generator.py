@@ -16,29 +16,29 @@ def timSortGenerator(nums):
         return slice
 
     def merge_slice(slice, left, mid, right):
-            if len(slice) <= 1: return slice
+        if len(slice) <= 1: return slice
             
-            slice_left = slice[left : mid + 1]
-            slice_right = slice[mid + 1 : right + 1]
-            merged = []
+        slice_left = slice[left : mid + 1]
+        slice_right = slice[mid + 1 : right + 1]
+        merged = []
 
-            left_i, right_i = 0, 0
-            while left_i < len(slice_left) and right_i < len(slice_right):
-                yield nums, left + left_i, (mid + 1) + right_i
-                if slice_left[left_i] < slice_right[right_i]:
-                    merged.append(slice_left[left_i])
-                    left_i += 1
-                else:
-                    merged.append(slice_right[right_i])
-                    right_i += 1
+        left_i, right_i = 0, 0
+        while left_i < len(slice_left) and right_i < len(slice_right):
+            yield nums, left + left_i, (mid + 1) + right_i
+            if slice_left[left_i] < slice_right[right_i]:
+                merged.append(slice_left[left_i])
+                left_i += 1
+            else:
+                merged.append(slice_right[right_i])
+                right_i += 1
 
-            merged.extend(slice_left[left_i:])
-            merged.extend(slice_right[right_i:])
-            for id, val in enumerate(merged):
-                slice[left + id] = val
-                yield nums, left + id, None
+        merged.extend(slice_left[left_i:])
+        merged.extend(slice_right[right_i:])
+        for id, val in enumerate(merged):
+            slice[left + id] = val
+            yield nums, left + id, None
             
-            return slice
+        return slice
 
     len_nums = len(nums)
     min_run = 32
