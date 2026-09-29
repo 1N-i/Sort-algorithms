@@ -84,7 +84,7 @@ input[type="number"]:focus, select:focus {
 }
 
 .algo-btn::after {
-    content: "\25B6"; /* Unicode for '▶' */
+    content: "▶";
     font-size: 0.75rem;
     opacity: 0.5;
     transition: transform 0.2s ease, opacity 0.2s ease;
