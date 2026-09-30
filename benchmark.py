@@ -15,8 +15,7 @@ from algorithms.tim_sort import timSort
 import time #Calculate the time of each algorithm
 from random import randint
 
-#Functions list
-algorithms = [
+algorithms = [ #Functions list
     iCantBelieveItCanSort,
     bubbleSort,
     selectionSort,

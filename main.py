@@ -15,50 +15,65 @@ from utils.data_generator import generateData
 from ui.renderer import renderer
 import pygame
 
-pygame.init()
-surface = pygame.display.set_mode((800, 600))
-clock = pygame.time.Clock()
+from flask import Flask, request, jsonify
+app = Flask(__name__, static_folder="./ui", static_url_path="")
+@app.route("/api/render", methods=["POST"])
+def route():
+    data = request.get_json() #Captures the JSON send by fetch
+    print("Received:", data)
 
+    run_visualizer(data["algo"], data["size"], data["dataType"], data["allowNegative"])
+    return jsonify({"status": "success"})
 
-#Functions list                     #Bigger value = Faster
-algorithms = [                      #clock.tick() value
-    bubbleSortGenerator,            #180
-    bucketSortGenerator,            #30
-    countingSortGenerator,          #45
-    heapSortGenerator,              #30
-    iCantBelieveItCanSortGenerator, #480
-    insertionSortGenerator,         #120
-    mergeSortGenerator,             #120
-    timSortGenerator,               #120
-    quickSortGenerator,             #120
-    radixSortGenerator,             #90
-    selectionSortGenerator,         #180
-    shellSortGenerator              #120
-]
+@app.route("/")
+def index():
+    return app.send_static_file("index.html")
 
-#("already_sorted", "reverse_sorted", "totally_random", "nearly_sorted")
-nums = generateData(100, "totally_random", True) #(size, style, allow_negatives)
-algo = timSortGenerator(nums)
-green_id = -1
+def run_visualizer(algo_name, size, data_type, allow_negative):
+    algorithms = {
+        "bubble_sort": bubbleSortGenerator,
+        "bucket_sort": bucketSortGenerator,
+        "counting_sort": countingSortGenerator,
+        "heap_sort": heapSortGenerator,
+        "i_cant_believe_it_can_sort": iCantBelieveItCanSortGenerator,
+        "insertion_sort": insertionSortGenerator,
+        "merge_sort": mergeSortGenerator,
+        "tim_sort": timSortGenerator,
+        "quick_sort": quickSortGenerator,
+        "radix_sort": radixSortGenerator,
+        "selection_sort": selectionSortGenerator,
+        "shell_sort": shellSortGenerator
+    }
 
-running = True
-while running:
-    for event in pygame.event.get(): #checks if the window should close
-        if event.type == pygame.QUIT:
-            running = False
+    pygame.init()
+    surface = pygame.display.set_mode((800, 600))
+    clock = pygame.time.Clock()
 
-    surface.fill((30, 30, 30))
-    step = next(algo, None)
-    if step is not None:
-        nums, id1, id2 = step
-        renderer(surface, nums, id1, id2)
-        clock.tick(120) #Speed the algorithm runs
-    else:
-        clock.tick(60) #Speed of the sorted animation
-        if green_id < len(nums):
-            green_id += 1
-        renderer(surface, nums, None, None, green_id)
+    nums = generateData(size, data_type, allow_negative)
+    algo = algorithms[algo_name](nums)
+    green_id = -1
 
-    pygame.display.flip()
+    running = True
+    while running:
+        for event in pygame.event.get(): #checks if the window should close
+            if event.type == pygame.QUIT:
+                running = False
 
-pygame.quit()
+        surface.fill((30, 30, 30))
+        step = next(algo, None)
+        if step is not None:
+            nums, id1, id2 = step
+            renderer(surface, nums, id1, id2)
+            clock.tick(120) #Speed the algorithm runs
+        else:
+            clock.tick(60) #Speed of the sorted animation
+            if green_id < len(nums):
+                green_id += 1
+            renderer(surface, nums, None, None, green_id)
+
+        pygame.display.flip()
+
+    pygame.quit()
+
+if __name__ == "__main__":
+    app.run(debug=True)
