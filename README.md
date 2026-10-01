@@ -1,67 +1,94 @@
-# 🔀 Python Sorting Algorithms & Benchmarks
+# 📊 Sorting Algorithms Visualizer & Benchmark
 
 ![Python](https://img.shields.io/badge/python-3.x-blue?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/flask-REST--API-black?style=for-the-badge&logo=flask)
+![Pygame](https://img.shields.io/badge/pygame-visualization-green?style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/javascript-ES6+-yellow?style=for-the-badge&logo=javascript)
 
-A clean, modular Python repository designed to implement, understand, and benchmark various sorting algorithms from scratch, comparing algorithmic efficiency.
+A full-stack Python and Web application designed to visualize, benchmark, and compare 13 sorting algorithms in real time.
 
 ## 📋 Summary
 - [Technologies](#-technologies)
 - [Features](#-features)
-- [Repository Structure](#-repository-structure)
 - [Implemented Algorithms](#-implemented-algorithms)
-  - [Quadratic Algorithms - O(n²)](#1-quadratic-algorithms---on2)
-  - [Logarithmic / Divide & Conquer Algorithms - O(n log n)](#2-logarithmic--divide--conquer-algorithms---on-log-n)
-  - [Non-Comparison / Linear Algorithms - O(n + k)](#3-non-comparison--linear-algorithms---on--k)
+- [Repository Structure](#-repository-structure)
 - [How to Run](#-how-to-run)
 - [Future Improvements](#-future-improvements)
 
 ---
 
 ## 🛠 Technologies
-- **Python 3.x**: Core algorithm implementations and execution environment.
-- **Time Module (`time.perf_counter`)**: High-precision timing used for performance benchmarking.
-- **Random Module**: Generates randomized integer datasets for benchmark tests.
+- **Backend**: Python 3.x, Flask (REST API)
+- **Visualization**: Pygame (Generator-driven animations)
+- **Frontend**: HTML5, CSS3, JavaScript ES6 (Fetch API, Async DOM rendering)
+- **Benchmarking**: High-precision timing via `time.perf_counter`
 
 ## ✨ Features
-- **From-Scratch Implementations**: Every sorting algorithm is built independently to focus on conceptual clarity and algorithmic logic.
-- **Automated Benchmarking Harness**: Centralized runner executing tests across dataset sizes of 10, 1,000, and 5,000 random elements.
-- **Terminal Table Output**: Renders timing comparative tables directly in the console.
-- **Modular & Scalable**: Designed with decoupled algorithm modules to seamlessly support future sorting algorithms.
+- **Interactive Web Interface**: Custom controls for dataset size, negative numbers flag, and data distribution types (Already sorted, Reverse sorted, Totally random, Nearly sorted).
+- **Generator-Driven Animation**: Pygame visualizer uses Python `yield` generators to render array state transitions, element swaps, and a completion sweep without blocking execution.
+- **Dynamic Web Benchmark**: Executes all algorithms against identical data configurations and returns a JSON response to construct a dynamic HTML benchmark table.
 
-## 📁 Repository Structure
-* `algorithms/`: Directory containing individual modules for each sorting algorithm.
-* `main.py`: Centralized benchmark runner using `time.perf_counter()` to execute algorithms across multiple dataset sizes (10, 1,000, and 5,000 random elements) and render clean formatted table outputs in the terminal.
+## 📊 Implemented Algorithms
 
-## 🧮 Implemented Algorithms
+### 1. Quadratic Algorithms — $O(n^2)$
+- **I Can't Believe It Can Sort**: An unusually simple quadratic exchange sort using two full nested loops.
+- **Bubble Sort**: Repeatedly steps through the list, compares adjacent elements, and swaps out-of-order pairs.
+- **Selection Sort**: In-place comparison algorithm that repeatedly finds the minimum element and places it at the sorted partition.
+- **Insertion Sort**: Builds the sorted array one item at a time by inserting unsorted elements into their correct position.
+- **Shell Sort**: An optimization of insertion sort using decreasing gap sequences to move distant elements efficiently.
 
-### 1. Quadratic Algorithms - $O(n^2)$
-* **I Can't Believe It Can Sort**: An unusually simple quadratic exchange sort using two full nested loops.
-* **Bubble Sort**: Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
-* **Selection Sort**: In-place comparison algorithm that repeatedly finds the minimum element from the unsorted region and places it at the beginning.
-* **Insertion Sort**: Builds the final sorted array one item at a time by inserting unsorted elements into their correct position.
-* **Shell Sort**: An optimization of insertion sort that compares elements separated by a decreasing gap sequence, significantly reducing element movement before finishing with a final gap-1 insertion pass.
+### 2. Logarithmic / Divide & Conquer Algorithms — $O(n \log n)$
+- **Merge Sort**: Recursively splits the array in half, sorts each half, and merges them together.
+- **Quick Sort**: Uses a pivot element to partition the array recursively into smaller and larger sub-arrays.
+- **Heap Sort**: Converts the list into a Max-Heap binary tree to repeatedly extract the largest element.
+- **Python Sort**: Native C-level `list.sort()` (Timsort) serving as the baseline benchmark.
+- **Tim Sort**: Hybrid sorting algorithm combining Merge Sort and Insertion Sort designed for real-world data patterns.
 
-### 2. Logarithmic / Divide & Conquer Algorithms - $O(n \log n)$
-* **Merge Sort**: Divide and conquer algorithm that splits the array in half recursively, sorts each half, and merges them back together.
-* **Quick Sort**: Divide and conquer algorithm utilizing a pivot element (with dedicated handling for duplicate values via equal buckets) to partition the array recursively.
-* **Heap Sort**: In-place comparison sort using a complete binary tree structure (Max-Heap) and a `heapify` process to repeatedly extract the maximum element to the end of the array.
-* **Python Sort (`python_sort`)**: Wrapper around Python's native `list.sort()` (Timsort), serving as the high-performance C-level baseline benchmark ($O(n \log n)$).
-* **Tim Sort (`tim_sort`)**: A hybrid sorting algorithm derived from Merge Sort and Insertion Sort, designed to perform efficiently on real-world data by identifying pre-existing ordered runs.
+### 3. Non-Comparison & Linear Algorithms — $O(n + k)$ / $O(d \cdot (n + k))$
+- **Counting Sort**: Non-comparison algorithm counting element frequencies to determine exact positions in linear time.
+- **Radix Sort**: Non-comparison algorithm processing numbers digit-by-digit using counting sort as a stable subroutine.
+- **Bucket Sort**: Distributes elements into uniform buckets, sorts each individually, and concatenates the result.
 
-### 3. Non-Comparison / Linear Algorithms - $O(n + k)$
-* **Counting Sort**: A non-comparison integer sorting algorithm that counts the frequency of distinct elements to calculate their exact output positions, operating in linear time $O(n + k)$.
-* **Radix Sort**: A non-comparison integer sorting algorithm that processes numbers digit by digit from least to most significant position using counting sort as a stable subroutine, operating in $O(d \cdot (n + k))$ time.
-* **Bucket Sort**: A distribution-based algorithm that divides input elements into several uniformly distributed buckets, individually sorts each bucket (often using Insertion Sort), and concatenates the results into a single sorted array.
+## 📂 Repository Structure
+
+```text
+Sort-algorithms/
+├── algorithms/                 # Pure algorithm implementations (for benchmarks)
+│   ├── bubble_sort.py
+│   ├── quick_sort.py
+│   └── ...
+├── algorithms_generator/       # Generator-based algorithm implementations (yielding steps for Pygame visualization)
+│   ├── bubble_sort_generator.py
+│   ├── quick_sort_generator.py
+│   └── ...
+├── ui/                         # Web frontend interface & Pygame graphics renderer
+│   ├── index.html              # Dashboard controls & benchmark output section
+│   ├── style.css               # Layout styling and UI components
+│   ├── script.js               # Async Fetch API triggers and DOM manipulators
+│   └── renderer.py             # Pygame canvas rendering logic (bars, swap highlights, green completion state)
+├── utils/                      # Helper tools
+│   └── data_generator.py       # Flexible data generation (Already sorted, Reverse sorted, Random, Nearly sorted)
+├── main.py                     # Flask web server & Pygame application orchestrator
+└── benchmark.py                # Performance measurement engine across all 13 algorithms
+```
 
 ## 🚀 How to Run
 
-To run the automated benchmark harness and compare execution times across all algorithms, execute the following command:
+1. **Install dependencies:**
+   ```bash
+   pip install flask pygame
+   ```
 
-```bash
-python benchmark.py
-```
+2. **Run the application:**
+   ```bash
+   python main.py
+   ```
+
+3. **Open in browser:**
+   Navigate to `http://localhost:5000/`
 
 ## 🔮 Future Improvements
-- [X] Add non-comparison sorting algorithms (**Counting Sort**, **Radix Sort**, **Bucket Sort**).
-- [ ] Support custom input distributions (Ex: nearly sorted, reverse sorted, duplicate-heavy datasets).
-- [ ] Add execution visualization and complexity graph rendering.
+- [X] Support custom input distributions (already sorted, reverse sorted, totally random, nearly sorted).
+- [X] Add execution visualization and benchmark time visualization.
+- [ ] Add interactive range sliders for animation speed controls.
+- [ ] Implement UI loading indicators ("Waiting for response...") during benchmark execution.
