@@ -11,6 +11,9 @@ A full-stack Python and Web application designed to visualize, benchmark, and co
 - [Technologies](#-technologies)
 - [Features](#-features)
 - [Implemented Algorithms](#-implemented-algorithms)
+   - [Quadratic Algorithms - O(n²)](#1-quadratic-algorithms---on2)
+   - [Logarithmic / Divide & Conquer Algorithms - O(n log n)](#2-logarithmic--divide--conquer-algorithms---on-log-n)
+   - [Non-Comparison / Linear Algorithms - O(n + k)](#3-non-comparison--linear-algorithms---on--k)
 - [Repository Structure](#-repository-structure)
 - [How to Run](#-how-to-run)
 - [Future Improvements](#-future-improvements)
@@ -30,21 +33,21 @@ A full-stack Python and Web application designed to visualize, benchmark, and co
 
 ## 📊 Implemented Algorithms
 
-### 1. Quadratic Algorithms — $O(n^2)$
+### 1. Quadratic Algorithms - $O(n^2)$
 - **I Can't Believe It Can Sort**: An unusually simple quadratic exchange sort using two full nested loops.
 - **Bubble Sort**: Repeatedly steps through the list, compares adjacent elements, and swaps out-of-order pairs.
 - **Selection Sort**: In-place comparison algorithm that repeatedly finds the minimum element and places it at the sorted partition.
 - **Insertion Sort**: Builds the sorted array one item at a time by inserting unsorted elements into their correct position.
 - **Shell Sort**: An optimization of insertion sort using decreasing gap sequences to move distant elements efficiently.
 
-### 2. Logarithmic / Divide & Conquer Algorithms — $O(n \log n)$
+### 2. Logarithmic / Divide & Conquer Algorithms - $O(n \log n)$
 - **Merge Sort**: Recursively splits the array in half, sorts each half, and merges them together.
 - **Quick Sort**: Uses a pivot element to partition the array recursively into smaller and larger sub-arrays.
 - **Heap Sort**: Converts the list into a Max-Heap binary tree to repeatedly extract the largest element.
 - **Python Sort**: Native C-level `list.sort()` (Timsort) serving as the baseline benchmark.
 - **Tim Sort**: Hybrid sorting algorithm combining Merge Sort and Insertion Sort designed for real-world data patterns.
 
-### 3. Non-Comparison & Linear Algorithms — $O(n + k)$ / $O(d \cdot (n + k))$
+### 3. Non-Comparison / Linear Algorithms - $O(n + k)$
 - **Counting Sort**: Non-comparison algorithm counting element frequencies to determine exact positions in linear time.
 - **Radix Sort**: Non-comparison algorithm processing numbers digit-by-digit using counting sort as a stable subroutine.
 - **Bucket Sort**: Distributes elements into uniform buckets, sorts each individually, and concatenates the result.
