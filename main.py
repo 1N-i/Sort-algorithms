@@ -30,7 +30,6 @@ def index():
     return app.send_static_file("index.html")
 
 from benchmark import run_benchmark
-
 @app.route("/api/benchmark", methods=["POST"])
 def benchmark_route():
     data = request.get_json()
@@ -65,10 +64,10 @@ def run_visualizer(algo_name, size, data_type, allow_negative):
 
     font = pygame.font.SysFont("arial", 28)
     text = font.render("Press SPACE to start", True, (255, 255, 255))
+    text_rect = text.get_rect(center=(window_lenght // 2, 25))
     waiting = True
     while waiting:
         renderer(surface, nums, None, None)
-        text_rect = text.get_rect(center=(window_lenght // 2, 25))
         surface.blit(text, text_rect)
         clock.tick(60)
         pygame.display.flip()

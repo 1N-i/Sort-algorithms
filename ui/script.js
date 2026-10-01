@@ -20,7 +20,7 @@ function sendData(payload) {
         body: JSON.stringify(payload)
     })
     .then(response => response.json())
-    .then(data => console.log("Return: ", data))
+    .then(data => (link == "/api/render") ? console.log("Return: ", data) : displayBenchmark(data))
     .catch(error => console.error("Error:", error));
 }
 
@@ -45,7 +45,7 @@ function renderAlgo(event) {
 const benchmarkBtn = document.getElementById("benchmark-btn");
 benchmarkBtn.addEventListener("click", renderBenchmark);
 
-function renderBenchmark(event) {
+function renderBenchmark() {
     const nameAlgo = "benchmark"
     data = getData()
 
@@ -56,4 +56,32 @@ function renderBenchmark(event) {
         dataType: data.dataType
     };
     sendData(payload)
+
+}
+
+function displayBenchmark(results) {
+    const container = document.getElementById("benchmark-results");
+    
+    let result = `
+        <table>
+            <thead>
+                <tr>
+                    <th>Algorithms</th>
+                    <th>Time (ms)</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    for (const [algo, time] of Object.entries(results)) {
+        result += `
+            <tr>
+                <td>${algo}</td>
+                <td>${time} ms</td>
+            </tr>
+        `;
+    }
+
+    result += `</tbody></table>`;
+    container.innerHTML = result;
 }
