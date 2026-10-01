@@ -29,6 +29,14 @@ def route():
 def index():
     return app.send_static_file("index.html")
 
+from benchmark import run_benchmark
+
+@app.route("/api/benchmark", methods=["POST"])
+def benchmark_route():
+    data = request.get_json()
+    results = run_benchmark(data["size"], data["dataType"], data["allowNegative"])
+    return jsonify(results)
+
 def run_visualizer(algo_name, size, data_type, allow_negative):
     algorithms = {
         "bubble_sort": bubbleSortGenerator,
@@ -46,16 +54,34 @@ def run_visualizer(algo_name, size, data_type, allow_negative):
     }
 
     pygame.init()
-    surface = pygame.display.set_mode((800, 600))
+    window_lenght = 800
+    window_height = 600
+    surface = pygame.display.set_mode((window_lenght, window_height))
     clock = pygame.time.Clock()
 
     nums = generateData(size, data_type, allow_negative)
     algo = algorithms[algo_name](nums)
     green_id = -1
 
+    font = pygame.font.SysFont("arial", 28)
+    text = font.render("Press SPACE to start", True, (255, 255, 255))
+    waiting = True
+    while waiting:
+        renderer(surface, nums, None, None)
+        text_rect = text.get_rect(center=(window_lenght // 2, 25))
+        surface.blit(text, text_rect)
+        clock.tick(60)
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+            if event.type == pygame.KEYDOWN: #Checks if the animation should start
+                if event.key == pygame.K_SPACE:
+                    waiting = False
+
     running = True
     while running:
-        for event in pygame.event.get(): #checks if the window should close
+        for event in pygame.event.get(): #Checks if the window should close
             if event.type == pygame.QUIT:
                 running = False
 
@@ -76,4 +102,5 @@ def run_visualizer(algo_name, size, data_type, allow_negative):
     pygame.quit()
 
 if __name__ == "__main__":
+    print("http://localhost:5000/")
     app.run(debug=True)
