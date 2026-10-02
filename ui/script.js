@@ -1,30 +1,4 @@
-function getData() {
-    return {
-        size: Number(document.getElementById("size").value),
-        allowNegative: document.getElementById("allow-negatives").checked,
-        dataType: document.getElementById("data-style").value,
-        speed: document.getElementById("speed-control").value
-    };
-}
-
-function sendData(payload) {
-    let link = "/api/render"
-    if (payload.algo === "benchmark") {
-        link = "/api/benchmark"
-    }
-
-    fetch(link, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => (link == "/api/render") ? console.log("Return: ", data) : displayBenchmark(data))
-    .catch(error => console.error("Error:", error));
-}
-
+let renderIsRunning = false
 
 const algoBtns = document.querySelectorAll(".algo-btn");
 algoBtns.forEach(btn => {
@@ -32,8 +6,20 @@ algoBtns.forEach(btn => {
 });
 
 function renderAlgo(event) {
+    if (renderIsRunning) {
+        alert("Be sure to close the other algorithm first to see another one")
+        return
+    } else {
+        renderIsRunning = true
+    }
     const nameAlgo = event.currentTarget.dataset.algo
     data = getData()
+
+    if (data.size > 800) {
+        alert("Algorithms animations will only work with lists with a maximum size of 800 but the benchmark works normally")
+        renderIsRunning = false
+        return
+    }
 
     const payload = {
         algo: nameAlgo,
@@ -86,6 +72,34 @@ function displayBenchmark(results) {
 
     result += `</tbody></table>`;
     container.innerHTML = result;
+}
+
+function getData() {
+    return {
+        size: Number(document.getElementById("size").value),
+        allowNegative: document.getElementById("allow-negatives").checked,
+        dataType: document.getElementById("data-style").value,
+        speed: document.getElementById("speed-control").value
+    };
+}
+
+function sendData(payload) {
+    let link = "/api/render"
+    if (payload.algo === "benchmark") {
+        link = "/api/benchmark"
+    }
+
+    fetch(link, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => (link == "/api/render") ? console.log("Return: ", data) : displayBenchmark(data))
+    .finally(() => {renderIsRunning = false})
+    .catch(error => console.error("Error:", error));
 }
 
 const speedControl = document.getElementById('speed-control');
