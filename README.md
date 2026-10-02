@@ -15,6 +15,7 @@ A full-stack Python and Web application designed to visualize, benchmark, and co
    - [Logarithmic / Divide & Conquer Algorithms - O(n log n)](#2-logarithmic--divide--conquer-algorithms---on-log-n)
    - [Non-Comparison / Linear Algorithms - O(n + k)](#3-non-comparison--linear-algorithms---on--k)
 - [Repository Structure](#-repository-structure)
+- [Prerequisites](#prerequisites)
 - [How to Run](#-how-to-run)
 - [Future Improvements](#-future-improvements)
 
@@ -75,20 +76,67 @@ Sort-algorithms/
 └── benchmark.py                # Performance measurement engine across all 13 algorithms
 ```
 
+##<a name="prerequisites"></a>⚙️ Prerequisites
+
+Before running this project, ensure you have the following installed on your operating system:
+- **[Python 3.8+](https://www.python.org/)** (verify installation with `python --version` or `python3 --version`)
+- **[Git](https://git-scm.com/)** (verify installation with `git --version`)
+
 ## 🚀 How to Run
 
-1. **Install dependencies:**
-   ```bash
-   pip install flask pygame
-   ```
+Follow these step-by-step instructions to set up and run the application locally.
 
-2. **Run the application:**
-   ```bash
-   python main.py
-   ```
+### 1. Clone the Repository
+Clone the project repository from GitHub to your local machine:
+```bash
+git clone https://github.com/your-username/Sort-algorithms.git
+```
 
-3. **Open in browser:**
-   Navigate to `http://localhost:5000/`
+### 2. Navigate to the Project Directory
+Change your current working directory to the project root folder:
+```bash
+cd Sort-algorithms
+```
+
+### 3. Create and Activate a Virtual Environment
+Creating an isolated virtual environment (`venv`) prevents permission errors and package conflicts with system-wide Python packages.
+
+- **On Windows:**
+  ```cmd
+  python -m venv venv
+  venv\Scripts\activate
+  ```
+
+- **On Linux / macOS:**
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+
+### 4. Install Dependencies
+Install the required project dependencies (`Flask` and `Pygame`) inside your activated virtual environment:
+```bash
+pip install flask pygame
+```
+
+### 5. Run the Application
+Execute the orchestrator script to start the Flask web server and Pygame renderer:
+
+- **On Windows:**
+  ```cmd
+  python main.py
+  ```
+
+- **On Linux / macOS:**
+  ```bash
+  python3 main.py
+  ```
+
+### 6. Access the Web Dashboard
+Open your web browser and navigate to:
+```text
+http://localhost:5000/
+```
 
 ## 🔮 Future Improvements
 - [X] Support custom input distributions (already sorted, reverse sorted, totally random, nearly sorted).
