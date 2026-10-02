@@ -2,7 +2,8 @@ function getData() {
     return {
         size: Number(document.getElementById("size").value),
         allowNegative: document.getElementById("allow-negatives").checked,
-        dataType: document.getElementById("data-style").value
+        dataType: document.getElementById("data-style").value,
+        speed: document.getElementById("speed-control").value
     };
 }
 
@@ -24,6 +25,7 @@ function sendData(payload) {
     .catch(error => console.error("Error:", error));
 }
 
+
 const algoBtns = document.querySelectorAll(".algo-btn");
 algoBtns.forEach(btn => {
     btn.addEventListener("click", renderAlgo);
@@ -37,7 +39,8 @@ function renderAlgo(event) {
         algo: nameAlgo,
         size: data.size,
         allowNegative: data.allowNegative,
-        dataType: data.dataType
+        dataType: data.dataType,
+        speed: data.speed
     };
     sendData(payload)
 }
@@ -61,7 +64,6 @@ function renderBenchmark() {
 
 function displayBenchmark(results) {
     const container = document.getElementById("benchmark-results");
-    
     let result = `
         <table>
             <thead>
@@ -85,3 +87,10 @@ function displayBenchmark(results) {
     result += `</tbody></table>`;
     container.innerHTML = result;
 }
+
+const speedControl = document.getElementById('speed-control');
+const speedValue = document.getElementById('speed-value');
+
+speedControl.addEventListener('input', (event) => {
+    speedValue.textContent = event.target.value;
+});

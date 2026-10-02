@@ -7,17 +7,22 @@
 
 	<body>
 		<form method="get">
-            List size: <input type="number" value="100" id="size" name="list_size"> <br>
-            <div class="box"> Negative numbers: 
+            <label for="size">List size:</label> <input type="number" value="100" id="size" name="list_size">
+            <div class="box"> 
+				<label for="allow-negatives">Negative numbers</label>
 				<input checked type="checkbox" value="negative" id="allow-negatives" name="allow_negatives"> <br>
             </div>
 
-            Type of data: <select id="data-style" name="data_style">
+            <label for="data-style">Type of data:</label>
+			<select id="data-style" name="data_style">
                 <option value="already_sorted" selected>Already sorted</option>
                 <option value="reverse_sorted">Reverse sorted</option>
                 <option value="totally_random">Totally random</option>
                 <option value="nearly_sorted">Nearly sorted</option>
-            </select> <br>
+            </select>
+
+			<label for="speed-control">Speed: <strong id="speed-value">120</strong> FPS</label>
+			<input type="range" min="1" max="500" value="120" id="speed-control" name="speed_control">
         </form>
 
 		<div class="algorithms-grid">

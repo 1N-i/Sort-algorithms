@@ -15,6 +15,7 @@ from utils.data_generator import generateData
 from ui.renderer import renderer
 import pygame
 
+
 from flask import Flask, request, jsonify
 app = Flask(__name__, static_folder="./ui", static_url_path="")
 @app.route("/api/render", methods=["POST"])
@@ -22,7 +23,7 @@ def route():
     data = request.get_json() #Captures the JSON send by fetch
     print("Received:", data)
 
-    run_visualizer(data["algo"], data["size"], data["dataType"], data["allowNegative"])
+    run_visualizer(data["algo"], data["size"], data["dataType"], data["allowNegative"], data["speed"])
     return jsonify({"status": "success"})
 
 @app.route("/")
@@ -36,7 +37,8 @@ def benchmark_route():
     results = run_benchmark(data["size"], data["dataType"], data["allowNegative"])
     return jsonify(results)
 
-def run_visualizer(algo_name, size, data_type, allow_negative):
+
+def run_visualizer(algo_name, size, data_type, allow_negative, speed):
     algorithms = {
         "bubble_sort": bubbleSortGenerator,
         "bucket_sort": bucketSortGenerator,
@@ -89,9 +91,9 @@ def run_visualizer(algo_name, size, data_type, allow_negative):
         if step is not None:
             nums, id1, id2 = step
             renderer(surface, nums, id1, id2)
-            clock.tick(120) #Speed the algorithm runs
+            clock.tick(int(speed)) #Speed the algorithm runs
         else:
-            clock.tick(60) #Speed of the sorted animation
+            clock.tick(int(speed)) #Speed of the sorted animation
             if green_id < len(nums):
                 green_id += 1
             renderer(surface, nums, None, None, green_id)
@@ -99,6 +101,7 @@ def run_visualizer(algo_name, size, data_type, allow_negative):
         pygame.display.flip()
 
     pygame.quit()
+
 
 if __name__ == "__main__":
     print("http://localhost:5000/")
