@@ -76,7 +76,7 @@ Sort-algorithms/
 └── benchmark.py                # Performance measurement engine across all 13 algorithms
 ```
 
-##<a name="prerequisites"></a>⚙️ Prerequisites
+## <a name="prerequisites"></a>⚙️ Prerequisites
 
 Before running this project, ensure you have the following installed on your operating system:
 - **[Python 3.8+](https://www.python.org/)** (verify installation with `python --version` or `python3 --version`)
