@@ -93,5 +93,5 @@ Sort-algorithms/
 ## 🔮 Future Improvements
 - [X] Support custom input distributions (already sorted, reverse sorted, totally random, nearly sorted).
 - [X] Add execution visualization and benchmark time visualization.
-- [ ] Add interactive range sliders for animation speed controls.
+- [X] Add interactive range sliders for animation speed controls.
 - [ ] Implement UI loading indicators ("Waiting for response...") during benchmark execution.
