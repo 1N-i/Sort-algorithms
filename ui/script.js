@@ -1,10 +1,9 @@
-let renderIsRunning = false
-
 const algoBtns = document.querySelectorAll(".algo-btn");
 algoBtns.forEach(btn => {
     btn.addEventListener("click", renderAlgo);
 });
 
+let renderIsRunning = false
 function renderAlgo(event) {
     if (renderIsRunning) {
         alert("Be sure to close the other algorithm first to see another one")
@@ -34,9 +33,28 @@ function renderAlgo(event) {
 const benchmarkBtn = document.getElementById("benchmark-btn");
 benchmarkBtn.addEventListener("click", renderBenchmark);
 
+let benchmarkIsRunning = false
 function renderBenchmark() {
+    if (benchmarkIsRunning) {
+        alert("Wait your last benchmark request be finished")
+        return
+    } else {
+        benchmarkIsRunning = true
+    }
     const nameAlgo = "benchmark"
     data = getData()
+
+    const container = document.getElementById("benchmark-results");
+    let result = `
+        <table>
+            <thead>
+                <tr>
+                    <th>Calculating...</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    container.innerHTML = result;
 
     const payload = {
         algo: nameAlgo,
@@ -72,6 +90,7 @@ function displayBenchmark(results) {
 
     result += `</tbody></table>`;
     container.innerHTML = result;
+    benchmarkIsRunning = false
 }
 
 function getData() {
@@ -84,6 +103,12 @@ function getData() {
 }
 
 function sendData(payload) {
+    if (payload.size < 1) {
+        alert("Please select a value bigger than 0 for the List size")
+        renderIsRunning = false
+        return
+    }
+
     let link = "/api/render"
     if (payload.algo === "benchmark") {
         link = "/api/benchmark"
@@ -104,7 +129,6 @@ function sendData(payload) {
 
 const speedControl = document.getElementById('speed-control');
 const speedValue = document.getElementById('speed-value');
-
 speedControl.addEventListener('input', (event) => {
     speedValue.textContent = event.target.value;
 });

@@ -5,11 +5,11 @@ from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
 from algorithms_generator.insertion_sort_generator import insertionSortGenerator
 from algorithms_generator.merge_sort_generator import mergeSortGenerator
-from algorithms_generator.tim_sort_generator import timSortGenerator
 from algorithms_generator.quick_sort_generator import quickSortGenerator
 from algorithms_generator.radix_sort_generator import radixSortGenerator
 from algorithms_generator.selection_sort_generator import selectionSortGenerator
 from algorithms_generator.shell_sort_generator import shellSortGenerator
+from algorithms_generator.tim_sort_generator import timSortGenerator
 
 from utils.data_generator import generateData
 from ui.renderer import renderer
@@ -47,11 +47,11 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         "i_cant_believe_it_can_sort": iCantBelieveItCanSortGenerator,
         "insertion_sort": insertionSortGenerator,
         "merge_sort": mergeSortGenerator,
-        "tim_sort": timSortGenerator,
         "quick_sort": quickSortGenerator,
         "radix_sort": radixSortGenerator,
         "selection_sort": selectionSortGenerator,
-        "shell_sort": shellSortGenerator
+        "shell_sort": shellSortGenerator,
+        "tim_sort": timSortGenerator,
     }
 
     pygame.init()
@@ -91,9 +91,9 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         if step is not None:
             nums, id1, id2 = step
             renderer(surface, nums, id1, id2)
-            clock.tick(int(speed)) #Speed the algorithm runs
+            clock.tick(int(speed) * 5) #Speed the algorithm runs
         else:
-            clock.tick(int(speed)) #Speed of the sorted animation
+            clock.tick(int(speed) * 5) #Speed of the sorted animation
             if green_id < len(nums):
                 green_id += 1
             renderer(surface, nums, None, None, green_id)
