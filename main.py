@@ -1,15 +1,24 @@
 from algorithms_generator.bubble_sort_generator import bubbleSortGenerator
 from algorithms_generator.bucket_sort_generator import bucketSortGenerator
+#from algorithms_generator.cocktail_sort_generator import cocktailSortGenerator
+#from algorithms_generator.comb_sort_generator import combSortGenerator
 from algorithms_generator.counting_sort_generator import countingSortGenerator
+#from algorithms_generator.double_selection_sort_generator import doubleSelectionSortGenerator
+#from algorithms_generator.gnome_sort_generator import gnomeSortGenerator
+#from algorithms_generator.gravity_sort_generator import gravitySortGenerator
 from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
 from algorithms_generator.insertion_sort_generator import insertionSortGenerator
 from algorithms_generator.merge_sort_generator import mergeSortGenerator
+#from algorithms_generator.odd_even_sort_generator import oddEvenSortGenerator
+#from algorithms_generator.pancake_sort_generator import pancakeSortGenerator
 from algorithms_generator.quick_sort_generator import quickSortGenerator
 from algorithms_generator.radix_sort_generator import radixSortGenerator
 from algorithms_generator.selection_sort_generator import selectionSortGenerator
 from algorithms_generator.shell_sort_generator import shellSortGenerator
+#from algorithms_generator.stooge_sort_generator import stoogeSortGenerator
 from algorithms_generator.tim_sort_generator import timSortGenerator
+
 
 from utils.data_generator import generateData
 from ui.renderer import renderer
@@ -42,16 +51,24 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
     algorithms = {
         "bubble_sort": bubbleSortGenerator,
         "bucket_sort": bucketSortGenerator,
+        #"cocktail_sort": cocktailSortGenerator,
+        #"comb_sort": combSortGenerator,
         "counting_sort": countingSortGenerator,
+        #"double_selection_sort": doubleSelectionSortGenerator,
+        #"gnome_sort": gnomeSortGenerator,
+        #"gravity_sort": gravitySortGenerator,
         "heap_sort": heapSortGenerator,
         "i_cant_believe_it_can_sort": iCantBelieveItCanSortGenerator,
         "insertion_sort": insertionSortGenerator,
         "merge_sort": mergeSortGenerator,
+        #"odd_even_sort": oddEvenSortGenerator,
+        #"pancake_sort": pancakeSortGenerator,
         "quick_sort": quickSortGenerator,
         "radix_sort": radixSortGenerator,
         "selection_sort": selectionSortGenerator,
         "shell_sort": shellSortGenerator,
-        "tim_sort": timSortGenerator,
+        #"stooge_sort": stoogeSortGenerator,
+        "tim_sort": timSortGenerator
     }
 
     pygame.init()
@@ -74,7 +91,7 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         clock.tick(60)
         pygame.display.flip()
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT: #Checks if the window should close
                 pygame.quit()
             if event.type == pygame.KEYDOWN: #Checks if the animation should start
                 if event.key == pygame.K_SPACE:
@@ -99,7 +116,6 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
             renderer(surface, nums, None, None, green_id)
 
         pygame.display.flip()
-
     pygame.quit()
 
 

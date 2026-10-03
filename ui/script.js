@@ -80,12 +80,21 @@ function displayBenchmark(results) {
     `;
 
     for (const [algo, time] of Object.entries(results)) {
-        result += `
+        if (time == "Recursion error") {
+            result += `
             <tr>
                 <td>${algo}</td>
-                <td>${time} ms</td>
+                <td>Recursion error</td>
             </tr>
         `;
+        } else {
+            result += `
+                <tr>
+                    <td>${algo}</td>
+                    <td>${time} ms</td>
+                </tr>
+            `;
+        }
     }
 
     result += `</tbody></table>`;
