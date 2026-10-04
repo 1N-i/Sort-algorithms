@@ -1,6 +1,6 @@
 from algorithms.bubble_sort import bubbleSort
 from algorithms.bucket_sort import bucketSort
-#from algorithms.cocktail_sort import cocktailSort
+from algorithms.cocktail_sort import cocktailSort
 #from algorithms.comb_sort import combSort
 from algorithms.counting_sort import countingSort
 #from algorithms.double_selection_sort import doubleSelectionSort
@@ -28,7 +28,7 @@ from utils.data_generator import generateData
 algorithms = [ #Functions list
     bubbleSort,
     bucketSort,
-    #cocktailSort,
+    cocktailSort,
     #combSort,
     countingSort,
     #doubleSelectionSort,
@@ -63,6 +63,7 @@ def run_benchmark(size, data_style, allow_negative):
             end = time.perf_counter()
             run_time = end - start
             info_to_save = round(run_time * 1000, 2)
+
             #Verifies if it's truly sorted
             assert result == sorted(main_nums), f"{algo.__name__} sorted incorrectly\n"
         except Exception:
@@ -73,6 +74,6 @@ def run_benchmark(size, data_style, allow_negative):
     return results
 
 if __name__ == "__main__":
-    results = run_benchmark(100, "totally_random", True)
+    results = run_benchmark(5000, "totally_random", True)
     for algo in results:
         print(f"{algo}: {results[algo]} ms")

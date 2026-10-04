@@ -1,11 +1,16 @@
 def bubbleSortGenerator(nums):
     len_nums = len(nums)
     for i in range(len_nums):
+        swapped = False
         for j in range(len_nums - i - 1):
             yield nums, j, j + 1
             if nums[j] > nums[j + 1]:
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
                 yield nums, j, j + 1
+                swapped = True
+                
+        if swapped == False:
+            break
 
     return nums
 
