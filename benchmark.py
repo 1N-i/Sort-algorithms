@@ -1,7 +1,7 @@
 from algorithms.bubble_sort import bubbleSort
 from algorithms.bucket_sort import bucketSort
 from algorithms.cocktail_sort import cocktailSort
-#from algorithms.comb_sort import combSort
+from algorithms.comb_sort import combSort
 from algorithms.counting_sort import countingSort
 #from algorithms.double_selection_sort import doubleSelectionSort
 #from algorithms.gnome_sort import gnomeSort
@@ -29,7 +29,7 @@ algorithms = [ #Functions list
     bubbleSort,
     bucketSort,
     cocktailSort,
-    #combSort,
+    combSort,
     countingSort,
     #doubleSelectionSort,
     #gnomeSort,
