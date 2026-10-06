@@ -4,7 +4,7 @@ from algorithms_generator.cocktail_sort_generator import cocktailSortGenerator
 from algorithms_generator.comb_sort_generator import combSortGenerator
 from algorithms_generator.counting_sort_generator import countingSortGenerator
 #from algorithms_generator.double_selection_sort_generator import doubleSelectionSortGenerator
-#from algorithms_generator.gnome_sort_generator import gnomeSortGenerator
+from algorithms_generator.gnome_sort_generator import gnomeSortGenerator
 #from algorithms_generator.gravity_sort_generator import gravitySortGenerator
 from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
@@ -55,7 +55,7 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         "comb_sort": combSortGenerator,
         "counting_sort": countingSortGenerator,
         #"double_selection_sort": doubleSelectionSortGenerator,
-        #"gnome_sort": gnomeSortGenerator,
+        "gnome_sort": gnomeSortGenerator,
         #"gravity_sort": gravitySortGenerator,
         "heap_sort": heapSortGenerator,
         "i_cant_believe_it_can_sort": iCantBelieveItCanSortGenerator,

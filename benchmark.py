@@ -4,7 +4,7 @@ from algorithms.cocktail_sort import cocktailSort
 from algorithms.comb_sort import combSort
 from algorithms.counting_sort import countingSort
 #from algorithms.double_selection_sort import doubleSelectionSort
-#from algorithms.gnome_sort import gnomeSort
+from algorithms.gnome_sort import gnomeSort
 #from algorithms.gravity_sort import gravitySort
 from algorithms.heap_sort import heapSort
 from algorithms.i_cant_believe_it_can_sort import iCantBelieveItCanSort
@@ -32,7 +32,7 @@ algorithms = [ #Functions list
     combSort,
     countingSort,
     #doubleSelectionSort,
-    #gnomeSort,
+    gnomeSort,
     #gravitySort,
     heapSort,
     iCantBelieveItCanSort,
