@@ -10,7 +10,7 @@ from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
 from algorithms_generator.insertion_sort_generator import insertionSortGenerator
 from algorithms_generator.merge_sort_generator import mergeSortGenerator
-#from algorithms_generator.odd_even_sort_generator import oddEvenSortGenerator
+from algorithms_generator.odd_even_sort_generator import oddEvenSortGenerator
 #from algorithms_generator.pancake_sort_generator import pancakeSortGenerator
 from algorithms_generator.quick_sort_generator import quickSortGenerator
 from algorithms_generator.radix_sort_generator import radixSortGenerator
@@ -61,7 +61,7 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         "i_cant_believe_it_can_sort": iCantBelieveItCanSortGenerator,
         "insertion_sort": insertionSortGenerator,
         "merge_sort": mergeSortGenerator,
-        #"odd_even_sort": oddEvenSortGenerator,
+        "odd_even_sort": oddEvenSortGenerator,
         #"pancake_sort": pancakeSortGenerator,
         "quick_sort": quickSortGenerator,
         "radix_sort": radixSortGenerator,
@@ -96,6 +96,7 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
             if event.type == pygame.KEYDOWN: #Checks if the animation should start
                 if event.key == pygame.K_SPACE:
                     waiting = False
+
 
     running = True
     while running:

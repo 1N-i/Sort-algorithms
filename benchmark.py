@@ -10,7 +10,7 @@ from algorithms.heap_sort import heapSort
 from algorithms.i_cant_believe_it_can_sort import iCantBelieveItCanSort
 from algorithms.insertion_sort import insertionSort
 from algorithms.merge_sort import mergeSort
-#from algorithms.odd_even_sort import oddEvenSort
+from algorithms.odd_even_sort import oddEvenSort
 #from algorithms.pancake_sort import pancakeSort
 from algorithms.python_sort import pythonSort
 from algorithms.quick_sort import quickSort
@@ -38,7 +38,7 @@ algorithms = [ #Functions list
     iCantBelieveItCanSort,
     insertionSort,
     mergeSort,
-    #oddEvenSort,
+    oddEvenSort,
     #pancakeSort,
     pythonSort,
     quickSort,
