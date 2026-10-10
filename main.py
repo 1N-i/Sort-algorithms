@@ -3,7 +3,7 @@ from algorithms_generator.bucket_sort_generator import bucketSortGenerator
 from algorithms_generator.cocktail_sort_generator import cocktailSortGenerator
 from algorithms_generator.comb_sort_generator import combSortGenerator
 from algorithms_generator.counting_sort_generator import countingSortGenerator
-#from algorithms_generator.double_selection_sort_generator import doubleSelectionSortGenerator
+from algorithms_generator.double_selection_sort_generator import doubleSelectionSortGenerator
 from algorithms_generator.gnome_sort_generator import gnomeSortGenerator
 #from algorithms_generator.gravity_sort_generator import gravitySortGenerator
 from algorithms_generator.heap_sort_generator import heapSortGenerator
@@ -54,7 +54,7 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         "cocktail_sort": cocktailSortGenerator,
         "comb_sort": combSortGenerator,
         "counting_sort": countingSortGenerator,
-        #"double_selection_sort": doubleSelectionSortGenerator,
+        "double_selection_sort": doubleSelectionSortGenerator,
         "gnome_sort": gnomeSortGenerator,
         #"gravity_sort": gravitySortGenerator,
         "heap_sort": heapSortGenerator,

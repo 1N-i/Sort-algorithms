@@ -3,7 +3,7 @@ from algorithms.bucket_sort import bucketSort
 from algorithms.cocktail_sort import cocktailSort
 from algorithms.comb_sort import combSort
 from algorithms.counting_sort import countingSort
-#from algorithms.double_selection_sort import doubleSelectionSort
+from algorithms.double_selection_sort import doubleSelectionSort
 from algorithms.gnome_sort import gnomeSort
 #from algorithms.gravity_sort import gravitySort
 from algorithms.heap_sort import heapSort
@@ -31,7 +31,7 @@ algorithms = [ #Functions list
     cocktailSort,
     combSort,
     countingSort,
-    #doubleSelectionSort,
+    doubleSelectionSort,
     gnomeSort,
     #gravitySort,
     heapSort,
