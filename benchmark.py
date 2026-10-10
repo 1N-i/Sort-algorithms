@@ -11,7 +11,7 @@ from algorithms.i_cant_believe_it_can_sort import iCantBelieveItCanSort
 from algorithms.insertion_sort import insertionSort
 from algorithms.merge_sort import mergeSort
 from algorithms.odd_even_sort import oddEvenSort
-#from algorithms.pancake_sort import pancakeSort
+from algorithms.pancake_sort import pancakeSort
 from algorithms.python_sort import pythonSort
 from algorithms.quick_sort import quickSort
 from algorithms.radix_sort import radixSort
@@ -39,7 +39,7 @@ algorithms = [ #Functions list
     insertionSort,
     mergeSort,
     oddEvenSort,
-    #pancakeSort,
+    pancakeSort,
     pythonSort,
     quickSort,
     radixSort,
