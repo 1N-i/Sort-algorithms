@@ -1,11 +1,12 @@
+#from algorithms.bitonic_sort import bitonicSort
 from algorithms.bubble_sort import bubbleSort
 from algorithms.bucket_sort import bucketSort
 from algorithms.cocktail_sort import cocktailSort
 from algorithms.comb_sort import combSort
 from algorithms.counting_sort import countingSort
+from algorithms.cycle_sort import cycleSort
 from algorithms.double_selection_sort import doubleSelectionSort
 from algorithms.gnome_sort import gnomeSort
-#from algorithms.gravity_sort import gravitySort
 from algorithms.heap_sort import heapSort
 from algorithms.i_cant_believe_it_can_sort import iCantBelieveItCanSort
 from algorithms.insertion_sort import insertionSort
@@ -17,7 +18,6 @@ from algorithms.quick_sort import quickSort
 from algorithms.radix_sort import radixSort
 from algorithms.selection_sort import selectionSort
 from algorithms.shell_sort import shellSort
-#from algorithms.stooge_sort import stoogeSort
 from algorithms.tim_sort import timSort
 
 import time #Calculate the time of each algorithm
@@ -26,14 +26,15 @@ from random import randint
 from utils.data_generator import generateData
 
 algorithms = [ #Functions list
+    #bitonicSort,
     bubbleSort,
     bucketSort,
     cocktailSort,
     combSort,
     countingSort,
+    cycleSort,
     doubleSelectionSort,
     gnomeSort,
-    #gravitySort,
     heapSort,
     iCantBelieveItCanSort,
     insertionSort,
@@ -45,7 +46,6 @@ algorithms = [ #Functions list
     radixSort,
     selectionSort,
     shellSort,
-    #stoogeSort,
     timSort
 ]
 

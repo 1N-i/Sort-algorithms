@@ -1,11 +1,12 @@
+#from algorithms_generator.bitonic_sort_generator import bitonicSortGenerator
 from algorithms_generator.bubble_sort_generator import bubbleSortGenerator
 from algorithms_generator.bucket_sort_generator import bucketSortGenerator
 from algorithms_generator.cocktail_sort_generator import cocktailSortGenerator
 from algorithms_generator.comb_sort_generator import combSortGenerator
 from algorithms_generator.counting_sort_generator import countingSortGenerator
+from algorithms_generator.cycle_sort_generator import cycleSortGenerator
 from algorithms_generator.double_selection_sort_generator import doubleSelectionSortGenerator
 from algorithms_generator.gnome_sort_generator import gnomeSortGenerator
-#from algorithms_generator.gravity_sort_generator import gravitySortGenerator
 from algorithms_generator.heap_sort_generator import heapSortGenerator
 from algorithms_generator.i_cant_believe_it_can_sort_generator import iCantBelieveItCanSortGenerator
 from algorithms_generator.insertion_sort_generator import insertionSortGenerator
@@ -16,7 +17,6 @@ from algorithms_generator.quick_sort_generator import quickSortGenerator
 from algorithms_generator.radix_sort_generator import radixSortGenerator
 from algorithms_generator.selection_sort_generator import selectionSortGenerator
 from algorithms_generator.shell_sort_generator import shellSortGenerator
-#from algorithms_generator.stooge_sort_generator import stoogeSortGenerator
 from algorithms_generator.tim_sort_generator import timSortGenerator
 
 
@@ -49,14 +49,15 @@ def benchmark_route():
 
 def run_visualizer(algo_name, size, data_type, allow_negative, speed):
     algorithms = {
+        #"bitonic_sort": bitonicSortGenerator,
         "bubble_sort": bubbleSortGenerator,
         "bucket_sort": bucketSortGenerator,
         "cocktail_sort": cocktailSortGenerator,
         "comb_sort": combSortGenerator,
         "counting_sort": countingSortGenerator,
+        "cycle_sort": cycleSortGenerator,
         "double_selection_sort": doubleSelectionSortGenerator,
         "gnome_sort": gnomeSortGenerator,
-        #"gravity_sort": gravitySortGenerator,
         "heap_sort": heapSortGenerator,
         "i_cant_believe_it_can_sort": iCantBelieveItCanSortGenerator,
         "insertion_sort": insertionSortGenerator,
@@ -67,7 +68,6 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         "radix_sort": radixSortGenerator,
         "selection_sort": selectionSortGenerator,
         "shell_sort": shellSortGenerator,
-        #"stooge_sort": stoogeSortGenerator,
         "tim_sort": timSortGenerator
     }
 
