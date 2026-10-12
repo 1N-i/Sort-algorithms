@@ -1,4 +1,3 @@
-#from algorithms.bitonic_sort import bitonicSort
 from algorithms.bubble_sort import bubbleSort
 from algorithms.bucket_sort import bucketSort
 from algorithms.cocktail_sort import cocktailSort
@@ -13,6 +12,7 @@ from algorithms.insertion_sort import insertionSort
 from algorithms.merge_sort import mergeSort
 from algorithms.odd_even_sort import oddEvenSort
 from algorithms.pancake_sort import pancakeSort
+from algorithms.pigeon_hole_sort import pigeonHoleSort
 from algorithms.python_sort import pythonSort
 from algorithms.quick_sort import quickSort
 from algorithms.radix_sort import radixSort
@@ -26,7 +26,6 @@ from random import randint
 from utils.data_generator import generateData
 
 algorithms = [ #Functions list
-    #bitonicSort,
     bubbleSort,
     bucketSort,
     cocktailSort,
@@ -41,6 +40,7 @@ algorithms = [ #Functions list
     mergeSort,
     oddEvenSort,
     pancakeSort,
+    pigeonHoleSort,
     pythonSort,
     quickSort,
     radixSort,
@@ -72,6 +72,7 @@ def run_benchmark(size, data_style, allow_negative):
         results[algo.__name__] = info_to_save
 
     return results
+
 
 if __name__ == "__main__":
     results = run_benchmark(5000, "totally_random", True)

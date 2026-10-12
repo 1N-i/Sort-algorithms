@@ -1,4 +1,3 @@
-#from algorithms_generator.bitonic_sort_generator import bitonicSortGenerator
 from algorithms_generator.bubble_sort_generator import bubbleSortGenerator
 from algorithms_generator.bucket_sort_generator import bucketSortGenerator
 from algorithms_generator.cocktail_sort_generator import cocktailSortGenerator
@@ -13,6 +12,7 @@ from algorithms_generator.insertion_sort_generator import insertionSortGenerator
 from algorithms_generator.merge_sort_generator import mergeSortGenerator
 from algorithms_generator.odd_even_sort_generator import oddEvenSortGenerator
 from algorithms_generator.pancake_sort_generator import pancakeSortGenerator
+from algorithms_generator.pigeon_hole_sort_generator import pigeonHoleSortGenerator
 from algorithms_generator.quick_sort_generator import quickSortGenerator
 from algorithms_generator.radix_sort_generator import radixSortGenerator
 from algorithms_generator.selection_sort_generator import selectionSortGenerator
@@ -49,7 +49,6 @@ def benchmark_route():
 
 def run_visualizer(algo_name, size, data_type, allow_negative, speed):
     algorithms = {
-        #"bitonic_sort": bitonicSortGenerator,
         "bubble_sort": bubbleSortGenerator,
         "bucket_sort": bucketSortGenerator,
         "cocktail_sort": cocktailSortGenerator,
@@ -64,6 +63,7 @@ def run_visualizer(algo_name, size, data_type, allow_negative, speed):
         "merge_sort": mergeSortGenerator,
         "odd_even_sort": oddEvenSortGenerator,
         "pancake_sort": pancakeSortGenerator,
+        "pigeon_hole_sort": pigeonHoleSortGenerator,
         "quick_sort": quickSortGenerator,
         "radix_sort": radixSortGenerator,
         "selection_sort": selectionSortGenerator,
